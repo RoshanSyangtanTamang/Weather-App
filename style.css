@@ -84,6 +84,18 @@ body {
     margin: 40px 0;
 }
 
+.weather-box, 
+.weather-details,
+.not-found {
+    visibility: hidden;
+}
+
+.weather-box.active, 
+.weather-details.active,
+.not-found.active {
+    visibility: visible;
+}
+
 .weather-box img {
     width: 60%;
 }
@@ -148,4 +160,23 @@ body {
 .weather-details p {
     font-size: 15px;
     font-weight: 500;
+}
+
+.not-found {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.not-found img {
+    width: 60%;
+}
+
+.not-found p {
+    font-size: 22px;
+    font-weight: 500;
+    /* margin-top: 5px; */
 }

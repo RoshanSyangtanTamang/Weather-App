@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const details = document.querySelector('.weather-details');
+const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click', () => {
     const APIKey = '4c5427391ad44a62c304e459e663f7f4';
@@ -11,6 +12,20 @@ search.addEventListener('click', () => {
         return;
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`).then(response => response.json()).then(json => {
+
+        if (json.cod == '404') {
+            container.style.height = '400px';
+            weatherBox.classList.remove('active');
+            details.classList.remove('active');
+            error404.classList.add('active');
+            return;
+        }
+
+        container.style.height = '550px';
+        weatherBox.classList.add('active');
+        details.classList.add('active');
+        error404.classList.remove('active');
+
         const image = document.querySelector('.weather-box img');
         const temperature = document.querySelector('.weather-box .temp');
         const description = document.querySelector('.weather-box .desc');
@@ -41,7 +56,7 @@ search.addEventListener('click', () => {
             case 'Snow':
                 image.src = 'snowy.png';
                 break;
-        
+
             default:
                 image.src = 'partly.png';
         }
