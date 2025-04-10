@@ -103,6 +103,16 @@ search.addEventListener('click', () => {
                 infoHumidity.insertAdjacentElement("afterend", elCloneInfoHumidity);
                 infoWind.insertAdjacentElement("afterend", elCloneInfoWind);
             }, 2200);
+
+            const cloneInfoWeather = document.querySelectorAll('.info-weather.active-clone');
+            const totalCloneInfoWeather = cloneInfoWeather.length;
+            const cloneInfoWeatherFirst = cloneInfoWeather[0];
+
+            const cloneInfoHumidity = document.querySelectorAll('.info-humidity.active-clone');
+            const cloneInfoHumidityFirst = cloneInfoHumidity[0];
+
+            const cloneInfoWind = document.querySelectorAll('.info-wind.active-clone');
+            const cloneInfoWindFirst = cloneInfoWind[0];
         }
     });
 });
