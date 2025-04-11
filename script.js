@@ -92,10 +92,10 @@ search.addEventListener('click', () => {
             elCloneInfoWeather.id = 'clone-info-weather';
             elCloneInfoWeather.classList.add('active-clone');
 
-            elCloneInfoHumidity.id = 'clone-info-weather';
+            elCloneInfoHumidity.id = 'clone-info-humidity';
             elCloneInfoHumidity.classList.add('active-clone');
 
-            elCloneInfoWind.id = 'clone-info-weather';
+            elCloneInfoWind.id = 'clone-info-wind';
             elCloneInfoWind.classList.add('active-clone');
 
             setTimeout(() => {
@@ -113,6 +113,18 @@ search.addEventListener('click', () => {
 
             const cloneInfoWind = document.querySelectorAll('.info-wind.active-clone');
             const cloneInfoWindFirst = cloneInfoWind[0];
+
+            if (totalCloneInfoWeather > 0) {
+                cloneInfoWeatherFirst.classList.remove('active-clone');
+                cloneInfoHumidityFirst.classList.remove('active-clone');
+                cloneInfoWindFirst.classList.remove('active-clone');
+
+                setTimeout(() => {
+                    cloneInfoWeatherFirst.remove();
+                    cloneInfoHumidityFirst.remove();
+                    cloneInfoWindFirst.remove();
+                }, 2200);
+            }
         }
     });
 });
